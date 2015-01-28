@@ -1,12 +1,14 @@
-define(['renderer', 'updater'], function(Renderer, Updater) {
+define(['percolationStats', 'renderer', 'updater'], function(PercolationStats, Renderer, Updater) {
   var App = Class.extend({
     init: function() {
       this.hasNeverStarted = true;
       this.started = false;
+
+      this.n = 5;
     },
 
     setup: function(canvas) {
-      this.setRenderer(new Renderer(canvas));
+      this.setRenderer(new Renderer(this, canvas));
     },
 
     setRenderer: function(renderer) {
@@ -15,6 +17,9 @@ define(['renderer', 'updater'], function(Renderer, Updater) {
 
     run: function() {
       this.setUpdater(new Updater(this));
+
+      this.setExperiment(new PercolationStats(this.n, 1));
+
       this.started = true;
       this.tick();
       this.hasNeverStarted = false;
@@ -22,6 +27,10 @@ define(['renderer', 'updater'], function(Renderer, Updater) {
 
     setUpdater: function(updater) {
       this.updater = updater;
+    },
+
+    setExperiment: function(experiment) {
+      this.experiment = experiment;
     },
 
     tick: function() {
