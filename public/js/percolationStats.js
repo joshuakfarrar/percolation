@@ -4,9 +4,7 @@ define(['percolation'], function(Percolation) {
       this.n = n;
       this.t = t;
 
-      for (var i = 0; i < t; i++) {
-        this.runPercolationExperiment();
-      }
+      this.runPercolationExperiment();
     },
 
     runPercolationExperiment: function() {
@@ -26,6 +24,7 @@ define(['percolation'], function(Percolation) {
         } else {
           clearInterval(wait);
           console.log('percolated in ' + steps + ' steps!');
+          // self.runPercolationExperiment();
         }
       }, 0);
     }
