@@ -4,7 +4,7 @@ define(['percolationStats', 'renderer', 'updater'], function(PercolationStats, R
       this.hasNeverStarted = true;
       this.started = false;
 
-      this.n = 5;
+      this.n = 10;
     },
 
     setup: function(canvas) {

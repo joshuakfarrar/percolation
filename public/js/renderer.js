@@ -16,6 +16,7 @@ define(function() {
     drawPercolation: function() {
       var percolation = this.app.experiment.percolation;
 
+      // n(2)! lame.
       for (var i = 1; i <= percolation.n; i++) {
         for (var j = 1; j <= percolation.n; j++) {
           if (percolation.isOpen(i, j)) {
@@ -57,7 +58,7 @@ define(function() {
 
     clear: function() {
       this.context.save();
-        this.context.fillStyle = "#ffffff";
+        this.context.fillStyle = "#000000";
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.context.restore();
     }

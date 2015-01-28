@@ -21,15 +21,13 @@ define(['percolation'], function(Percolation) {
           var i = Math.floor(Math.random() * self.n) + 1;
           var j = Math.floor(Math.random() * self.n) + 1;
 
-          console.log(i, j);
-
           self.percolation.open(i, j);
           steps++;
         } else {
           clearInterval(wait);
-          alert('percolated in ' + steps + ' steps!');
+          console.log('percolated in ' + steps + ' steps!');
         }
-      }, 100);
+      }, 0);
     }
   });
 
