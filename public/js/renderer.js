@@ -30,14 +30,14 @@ define(function() {
 
     emptyRect: function(i, j) {
       if (this.app.experiment.percolation.isFull(i, j)) {
-        this.drawRect(i, j, '#0000ff');
+        this.drawRect(i, j, '#50b4a2');
       } else {
         this.drawRect(i, j, '#ffffff');
       }
     },
 
     filledRect: function(i, j) {
-      this.drawRect(i, j, '#000000');
+      this.drawRect(i, j, '#20201f');
     },
 
     drawRect: function(i, j, color) {
