@@ -1,4 +1,4 @@
-define(['percolationStats', 'renderer', 'updater'], function(PercolationStats, Renderer, Updater) {
+define(['percolationStats', 'renderer'], function(PercolationStats, Renderer) {
   var App = Class.extend({
     init: function() {
       this.hasNeverStarted = true;
@@ -16,17 +16,11 @@ define(['percolationStats', 'renderer', 'updater'], function(PercolationStats, R
     },
 
     run: function() {
-      this.setUpdater(new Updater(this));
-
       this.setExperiment(new PercolationStats(this.n, 1));
 
       this.started = true;
       this.tick();
       this.hasNeverStarted = false;
-    },
-
-    setUpdater: function(updater) {
-      this.updater = updater;
     },
 
     setExperiment: function(experiment) {
@@ -37,7 +31,6 @@ define(['percolationStats', 'renderer', 'updater'], function(PercolationStats, R
       this.currentTime = new Date().getTime();
 
       if (this.started) {
-        this.updater.update();
         this.renderer.renderFrame();
       }
 
